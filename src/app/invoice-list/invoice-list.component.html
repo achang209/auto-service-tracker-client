@@ -1,0 +1,20 @@
+<table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Date</th>
+            <th>Mileage</th>
+            <th>Service Provider</th>
+            <th>Service Performed</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let invoice of invoices">
+            <th>{{invoice.id}}</th>
+            <th>{{invoice.date}}</th>
+            <th>{{invoice.mileage}}</th>
+            <th>{{invoice.serviceProvider}}</th>
+            <th>{{invoice.servicePerformed}}</th>
+        </tr>
+    </tbody>
+</table>
