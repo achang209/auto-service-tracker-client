@@ -5,16 +5,20 @@ import { HttpClientModule }    from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { InvoiceListComponent } from './invoice-list/invoice-list.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FormAddInvoiceComponent } from './form-add-invoice/form-add-invoice.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    InvoiceListComponent
+    InvoiceListComponent,
+    FormAddInvoiceComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

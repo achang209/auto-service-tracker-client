@@ -1,0 +1,27 @@
+<h2>Add Invoice</h2>
+
+<form [formGroup]="addInvoiceForm" (ngSubmit)="onSubmit()">
+  
+    <label>
+        Date:
+        <input type="text" formControlName="date">
+    </label>
+  
+    <label>
+        Mileage:
+        <input type="text" formControlName="mileage">
+    </label>
+
+    <label>
+        ServiceProvider:
+        <input type="text" formControlName="serviceProvider">
+    </label>
+
+    <label>
+        ServicePerformed:
+        <input type="text" formControlName="servicePerformed">
+    </label>
+    
+    <button type="submit" [disabled]="!addInvoiceForm.valid">Submit</button>
+    
+  </form>
