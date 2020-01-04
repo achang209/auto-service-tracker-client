@@ -1,27 +1,36 @@
-<h2>Add Invoice</h2>
+<div class="card my-5">
+    <div class="card-body">
+        <form [formGroup]="addInvoiceForm" (ngSubmit)="onSubmit()">
 
-<form [formGroup]="addInvoiceForm" (ngSubmit)="onSubmit()">
-  
-    <label>
-        Date:
-        <input type="text" formControlName="date">
-    </label>
-  
-    <label>
-        Mileage:
-        <input type="text" formControlName="mileage">
-    </label>
+            <div class="form-group">
+            <label for="date">
+                Date:
+                <input class="form-control" type="text" formControlName="date">
+            </label>
+            </div>
+        
+            <div class="form-group">
+            <label>
+                Mileage:
+                <input class="form-control" type="text" formControlName="mileage">
+            </label>
+            </div>
 
-    <label>
-        ServiceProvider:
-        <input type="text" formControlName="serviceProvider">
-    </label>
+            <div class="form-group">
+            <label>
+                ServiceProvider:
+                <input class="form-control" type="text" formControlName="serviceProvider">
+            </label>
+            </div>
 
-    <label>
-        ServicePerformed:
-        <input type="text" formControlName="servicePerformed">
-    </label>
-    
-    <button type="submit" [disabled]="!addInvoiceForm.valid">Submit</button>
-    
-  </form>
+            <div class="form-group">
+            <label>
+                ServicePerformed:
+                <input class="form-control" type="text" formControlName="servicePerformed">
+            </label>
+            </div>
+            
+            <button class="btn btn-info" type="submit" [disabled]="!addInvoiceForm.valid">Submit</button>
+        </form>
+    </div>
+</div>
