@@ -16,8 +16,8 @@ export class InvoiceService {
     return this.http.get<Invoice[]>(this.invoiceUrl);
   }
 
-  addInvoice(invoice: Invoice): Observable<Invoice> {
-    return this.http.post<Invoice>(this.invoiceUrl, invoice);
+  addInvoice(formdata: FormData): Observable<FormData> {
+    return this.http.post<FormData>(this.invoiceUrl, formdata);
   }
 
 }

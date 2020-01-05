@@ -29,6 +29,13 @@
                 <input class="form-control" type="text" formControlName="servicePerformed">
             </label>
             </div>
+
+            <div class="form-group">
+                <label>
+                    Invoice PDF:
+                    <input class="form-control" type="file" (change)="onSelectFile($event)">
+                </label>
+                </div>
             
             <button class="btn btn-info" type="submit" [disabled]="!addInvoiceForm.valid">Submit</button>
         </form>
