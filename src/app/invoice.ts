@@ -4,4 +4,5 @@ export class Invoice {
     mileage: number;
     serviceProvider: string;
     servicePerformed: string;
+    filePath: string;
 }

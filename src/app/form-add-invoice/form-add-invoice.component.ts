@@ -10,16 +10,23 @@ import { Invoice } from '../invoice';
 })
 export class FormAddInvoiceComponent implements OnInit {
 
+  userFile: File;
+
   addInvoiceForm = new FormGroup({
     date: new FormControl(''),
     mileage: new FormControl(''),
     serviceProvider: new FormControl(''),
-    servicePerformed: new FormControl(''),
+    servicePerformed: new FormControl('')
   });
 
   constructor(private invoiceService: InvoiceService) { }
 
   ngOnInit() {
+  }
+
+  onSelectFile(event) {
+    const file: File = event.target.files[0];
+    this.userFile = file;
   }
 
   onSubmit(): void {
@@ -30,7 +37,13 @@ export class FormAddInvoiceComponent implements OnInit {
 
     if (!date || !mileage || !serviceProvider || !servicePerformed) { return; }
 
-    this.invoiceService.addInvoice({ date, mileage, serviceProvider, servicePerformed } as Invoice)
+    let invoice = this.addInvoiceForm.value;
+    const formData: FormData = new FormData();
+    formData.append('invoice', JSON.stringify(invoice));
+    formData.append('file', this.userFile);
+    
+
+    this.invoiceService.addInvoice(formData)
       .subscribe();
   }
 
