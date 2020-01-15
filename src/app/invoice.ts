@@ -1,8 +1,10 @@
+import { ServiceProvider } from './service-provider';
+
 export class Invoice {
     id: number;
     date: string;
     mileage: number;
-    serviceProvider: string;
+    serviceProvider: ServiceProvider;
     servicePerformed: string;
     filePath: string;
 }
