@@ -5,7 +5,7 @@
             <div class="form-group">
             <label for="date">
                 Date:
-                <input class="form-control" type="text" formControlName="date">
+                <input class="form-control" type="date" formControlName="date">
             </label>
             </div>
         
@@ -39,5 +39,10 @@
             
             <button class="btn btn-info" type="submit" [disabled]="!addInvoiceForm.valid">Submit</button>
         </form>
+
+        <p>
+            Form value: {{addInvoiceForm.value | json}}
+        </p>
+
     </div>
 </div>

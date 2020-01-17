@@ -1,20 +1,21 @@
-<label>
-    Search by service provider:
-    <input #serviceProvider type="text">
-</label>
+<div class="card my-5">
+    <div class="card-body">
 
-<button (click)="searchByProvider(serviceProvider.value)">search</button>
+        <label>
+            Search by service provider:
+            <input #serviceProvider type="text">
+        </label>
 
-<label>
-    Search by service performed:
-    <input #servicePerformed type="text">
-</label>
+        <button (click)="searchByProvider(serviceProvider.value)">search</button>
 
-<button (click)="searchByService(servicePerformed.value)">search</button>
+        <label>
+            Search by service performed:
+            <input #servicePerformed type="text">
+        </label>
 
-<div *ngIf="invoices.length > 0; else elseBlock">
-    <div class="card my-5">
-        <div class="card-body">
+        <button (click)="searchByService(servicePerformed.value)">search</button>
+        
+        <div *ngIf="invoices.length > 0; else elseBlock">
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
@@ -37,12 +38,12 @@
                 </tbody>
             </table>
         </div>
+
+        <ng-template #elseBlock>
+            <div>
+                No invoices to be found with search term = {{serviceProvider.value}}
+            </div>
+        </ng-template>
+
     </div>
 </div>
-
-<ng-template #elseBlock>
-<div>
-    No invoices to be found with search term = {{serviceProvider.value}}
-</div>
-</ng-template>
-
