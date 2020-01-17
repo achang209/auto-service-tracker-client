@@ -5,7 +5,14 @@
 
 <button (click)="searchByProvider(serviceProvider.value)">search</button>
 
-<div *ngIf="invoices.length > 0">
+<div *ngIf="invoices.length > 0; else elseBlock">
     hello world
-
 </div>
+
+
+<ng-template #elseBlock>
+<div>
+    No invoices to be found with search term = {{serviceProvider.value}}
+</div>
+</ng-template>
+
