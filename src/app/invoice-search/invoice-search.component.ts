@@ -21,4 +21,9 @@ export class InvoiceSearchComponent implements OnInit {
     .subscribe(invoices => this.invoices = invoices);
   }
 
+  searchByService(name: string): void {
+    this.invoiceService.searchByService(name)
+    .subscribe(invoices => this.invoices = invoices);
+  }
+
 }

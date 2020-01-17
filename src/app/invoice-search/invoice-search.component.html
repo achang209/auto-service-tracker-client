@@ -5,6 +5,13 @@
 
 <button (click)="searchByProvider(serviceProvider.value)">search</button>
 
+<label>
+    Search by service performed:
+    <input #servicePerformed type="text">
+</label>
+
+<button (click)="searchByService(servicePerformed.value)">search</button>
+
 <div *ngIf="invoices.length > 0; else elseBlock">
     <div class="card my-5">
         <div class="card-body">

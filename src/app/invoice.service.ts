@@ -23,9 +23,18 @@ export class InvoiceService {
 
   searchByProvider(term: string): Observable<Invoice[]> {
     if (!term.trim()) {
-      // if not search term, return empty hero array.
+      // if not search term, return empty invoice array.
       return of([]);
     }
-    return this.http.get<Invoice[]>(`${this.searchUrl}/?provider=${term}`);
+    return this.http.get<Invoice[]>(`${this.searchUrl}/provider/?provider=${term}`);
   }
+
+  searchByService(term: string): Observable<Invoice[]> {
+    if (!term.trim()) {
+      // if not search term, return empty invoice array.
+      return of([]);
+    }
+    return this.http.get<Invoice[]>(`${this.searchUrl}/service/?service=${term}`);
+  }
+
 }
