@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { InvoiceService } from '../service/invoice.service';
 import { Invoice } from '../model/invoice';
+import { ServiceProvider } from '../model/service-provider';
+import { ServiceProviderService } from '../service/service-provider.service';
 
 @Component({
   selector: 'app-form-add-invoice',
@@ -11,7 +13,7 @@ import { Invoice } from '../model/invoice';
 export class FormAddInvoiceComponent implements OnInit {
 
   userFile: File;
-
+  serviceProviders: ServiceProvider[];
   addInvoiceForm = new FormGroup({
     date: new FormControl(''),
     mileage: new FormControl(''),
@@ -19,9 +21,16 @@ export class FormAddInvoiceComponent implements OnInit {
     servicePerformed: new FormControl('')
   });
 
-  constructor(private invoiceService: InvoiceService) { }
+  constructor(private invoiceService: InvoiceService, 
+    private serviceProviderService: ServiceProviderService) { }
 
   ngOnInit() {
+    this.getServiceProviders;
+  }
+
+  getServiceProviders(): void {
+    this.serviceProviderService.getServiceProviders()
+      .subscribe(serviceProviders => this.serviceProviders = serviceProviders);
   }
 
   onSelectFile(event) {
