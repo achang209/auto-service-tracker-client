@@ -6,9 +6,32 @@
 <button (click)="searchByProvider(serviceProvider.value)">search</button>
 
 <div *ngIf="invoices.length > 0; else elseBlock">
-    hello world
+    <div class="card my-5">
+        <div class="card-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Mileage</th>
+                        <th scope="col">Service Provider</th>
+                        <th scope="col">Service Performed</th>
+                        <th scope="col">Actions</th>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let invoice of invoices">
+                        <td>{{invoice.date}}</td>
+                        <td>{{invoice.mileage}}</td>
+                        <td>{{invoice.serviceProvider}}</td>
+                        <td>{{invoice.servicePerformed}}</td>
+                        <td><a href="{{invoice.filePath}}" class="btn btn-info">Details</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-
 
 <ng-template #elseBlock>
 <div>
