@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { InvoiceService } from '../service/invoice.service';
-import { Invoice } from '../invoice';
+import { Invoice } from '../model/invoice';
 
 @Component({
   selector: 'app-form-add-invoice',
