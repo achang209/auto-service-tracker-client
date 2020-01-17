@@ -25,7 +25,7 @@ export class FormAddInvoiceComponent implements OnInit {
     private serviceProviderService: ServiceProviderService) { }
 
   ngOnInit() {
-    this.getServiceProviders;
+    this.getServiceProviders();
   }
 
   getServiceProviders(): void {
