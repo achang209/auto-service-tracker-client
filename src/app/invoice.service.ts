@@ -21,11 +21,11 @@ export class InvoiceService {
     return this.http.post<FormData>(this.invoiceUrl, formdata);
   }
 
-  searchByName(term: string): Observable<Invoice[]> {
+  searchByProvider(term: string): Observable<Invoice[]> {
     if (!term.trim()) {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this.http.get<Invoice[]>(`${this.searchUrl}/?name=${term}`);
+    return this.http.get<Invoice[]>(`${this.searchUrl}/?provider=${term}`);
   }
 }
