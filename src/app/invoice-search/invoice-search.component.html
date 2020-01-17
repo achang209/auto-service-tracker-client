@@ -1,1 +1,11 @@
-<p>invoice-search works!</p>
+<label>
+    Search by service provider:
+    <input #serviceProvider type="text">
+</label>
+
+<button (click)="searchByProvider(serviceProvider.value)">search</button>
+
+<div *ngIf="invoices.length > 0">
+    hello world
+
+</div>
