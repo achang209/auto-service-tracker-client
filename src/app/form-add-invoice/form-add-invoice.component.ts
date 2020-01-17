@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { InvoiceService } from '../invoice.service';
+import { InvoiceService } from '../service/invoice.service';
 import { Invoice } from '../invoice';
 
 @Component({
