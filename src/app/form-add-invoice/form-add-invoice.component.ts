@@ -17,7 +17,7 @@ export class FormAddInvoiceComponent implements OnInit {
   addInvoiceForm = new FormGroup({
     date: new FormControl(''),
     mileage: new FormControl(''),
-    serviceProvider: new FormControl(''),
+    serviceProviderId: new FormControl(''),
     servicePerformed: new FormControl('')
   });
 
@@ -41,10 +41,10 @@ export class FormAddInvoiceComponent implements OnInit {
   onSubmit(): void {
     let date = this.addInvoiceForm.value.date.trim();
     let mileage = this.addInvoiceForm.value.mileage.trim();
-    let serviceProvider = this.addInvoiceForm.value.serviceProvider.trim();
+    let serviceProviderId = this.addInvoiceForm.value.serviceProviderId.trim();
     let servicePerformed = this.addInvoiceForm.value.servicePerformed.trim();
 
-    if (!date || !mileage || !serviceProvider || !servicePerformed) { return; }
+    if (!date || !mileage || !serviceProviderId || !servicePerformed) { return; }
 
     let invoice = this.addInvoiceForm.value;
     const formData: FormData = new FormData();

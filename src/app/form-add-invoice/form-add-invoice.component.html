@@ -19,8 +19,8 @@
             <div class="form-group">
             <label>
                 ServiceProvider:
-                <select class="form-control" formControlName="serviceProvider">
-                    <option *ngFor="let provider of serviceProviders" [value]="provider">
+                <select class="form-control" formControlName="serviceProviderId">
+                    <option *ngFor="let provider of serviceProviders" [value]="provider.id">
                         {{provider.name}}
                     </option>
                 </select>
