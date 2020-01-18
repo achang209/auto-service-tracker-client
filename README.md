@@ -1,27 +1,19 @@
-# AutoServiceTrackerClient
+# Auto Service Tracker Client
+Typescript, Angular, Bootstrap, HTML, and CSS.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.2.
+# Overview:
+A front end application that consumes my [Auto Service Tracker api](https://github.com/achang209/auto-service-tracker-api/edit/master/README.md). 
+This application pairing allows users to keep track of their car's maintenance history. This project was inspired after numerous
+visits to disparate car shops and not being able to recall when or who last serviced a particalar part of my car.
 
-## Development server
+# Current Features:
+Users can save and edit their invoice details, search their invoices by various properties (i.e. service provider or service performed),
+and upload/download a PDF of their original invoice.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Next Steps:
+Currently my `Invoice` model object has a flat architecture structure where the value of each property is of type `int`
+or `String`. Moving forward, I would like to implement a nested object architecture to allow certain `Invoice` properties 
+(i.e. service provider and service performed) to be their own entity classes to illustrate relationships between the data types.
+Although I understand how to establish these relationships in my back end, I am struggling to deserialize the JSON object to Java objects
+when attempting to implement a nested entity architecture.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
