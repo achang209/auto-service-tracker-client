@@ -19,7 +19,11 @@
             <div class="form-group">
             <label>
                 ServiceProvider:
-                <input class="form-control" type="text" formControlName="serviceProvider">
+                <select class="form-control" formControlName="serviceProviderId">
+                    <option *ngFor="let provider of serviceProviders" [value]="provider.id">
+                        {{provider.name}}
+                    </option>
+                </select>
             </label>
             </div>
 

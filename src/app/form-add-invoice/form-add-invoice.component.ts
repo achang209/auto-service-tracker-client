@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { InvoiceService } from '../invoice.service';
-import { Invoice } from '../invoice';
+import { InvoiceService } from '../service/invoice.service';
+import { Invoice } from '../model/invoice';
+import { ServiceProvider } from '../model/service-provider';
+import { ServiceProviderService } from '../service/service-provider.service';
 
 @Component({
   selector: 'app-form-add-invoice',
@@ -11,17 +13,24 @@ import { Invoice } from '../invoice';
 export class FormAddInvoiceComponent implements OnInit {
 
   userFile: File;
-
+  serviceProviders: ServiceProvider[];
   addInvoiceForm = new FormGroup({
     date: new FormControl(''),
     mileage: new FormControl(''),
-    serviceProvider: new FormControl(''),
+    serviceProviderId: new FormControl(''),
     servicePerformed: new FormControl('')
   });
 
-  constructor(private invoiceService: InvoiceService) { }
+  constructor(private invoiceService: InvoiceService, 
+    private serviceProviderService: ServiceProviderService) { }
 
   ngOnInit() {
+    this.getServiceProviders();
+  }
+
+  getServiceProviders(): void {
+    this.serviceProviderService.getServiceProviders()
+      .subscribe(serviceProviders => this.serviceProviders = serviceProviders);
   }
 
   onSelectFile(event) {
@@ -32,10 +41,10 @@ export class FormAddInvoiceComponent implements OnInit {
   onSubmit(): void {
     let date = this.addInvoiceForm.value.date.trim();
     let mileage = this.addInvoiceForm.value.mileage.trim();
-    let serviceProvider = this.addInvoiceForm.value.serviceProvider.trim();
+    let serviceProviderId = this.addInvoiceForm.value.serviceProviderId.trim();
     let servicePerformed = this.addInvoiceForm.value.servicePerformed.trim();
 
-    if (!date || !mileage || !serviceProvider || !servicePerformed) { return; }
+    if (!date || !mileage || !serviceProviderId || !servicePerformed) { return; }
 
     let invoice = this.addInvoiceForm.value;
     const formData: FormData = new FormData();

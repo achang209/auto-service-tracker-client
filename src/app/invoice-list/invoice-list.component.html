@@ -13,7 +13,7 @@
                 <tr *ngFor="let invoice of invoices">
                     <td>{{invoice.date}}</td>
                     <td>{{invoice.mileage}}</td>
-                    <td>{{invoice.serviceProvider}}</td>
+                    <td>{{invoice.serviceProvider.name}}</td>
                     <td>{{invoice.servicePerformed}}</td>
                     <td><a href="{{invoice.filePath}}" class="btn btn-info">Details</a></td>
                 </tr>
