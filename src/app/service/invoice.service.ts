@@ -26,7 +26,7 @@ export class InvoiceService {
       // if not search term, return empty invoice array.
       return of([]);
     }
-    return this.http.get<Invoice[]>(`${this.searchUrl}/provider/?provider=${term}`);
+    return this.http.get<Invoice[]>(`${this.searchUrl}/provider/?name=${term}`);
   }
 
   searchByService(term: string): Observable<Invoice[]> {
@@ -34,7 +34,7 @@ export class InvoiceService {
       // if not search term, return empty invoice array.
       return of([]);
     }
-    return this.http.get<Invoice[]>(`${this.searchUrl}/service/?service=${term}`);
+    return this.http.get<Invoice[]>(`${this.searchUrl}/service/?name=${term}`);
   }
 
 }
