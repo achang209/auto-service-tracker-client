@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Vendor } from './vendor';
+import { Repair } from '../model/repair';
 
 @Injectable({
   providedIn: 'root'
 })
-export class VendorService {
-  private vendorUrl: string = "//localhost:8080/vendor"
+export class RepairService {
+  private repairUrl: string = "//localhost:8080/repair"
 
   constructor(private http: HttpClient) { }
 
-  getVendors(): Observable<Vendor[]> {
-    return this.http.get<Vendor[]>(this.vendorUrl);
+  getRepairs(): Observable<Repair[]> {
+    return this.http.get<Repair[]>(this.repairUrl);
   }
 }

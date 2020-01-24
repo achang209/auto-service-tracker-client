@@ -1,5 +1,5 @@
-import { Vendor } from '../vendor';
-import { Repair } from '../repair';
+import { Vendor } from './vendor';
+import { Repair } from './repair';
 
 export class Invoice {
     id: number;
