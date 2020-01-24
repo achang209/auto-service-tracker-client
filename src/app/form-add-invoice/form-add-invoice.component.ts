@@ -4,10 +4,10 @@ import { InvoiceService } from '../service/invoice.service';
 import { Invoice } from '../model/invoice';
 import { ServiceProvider } from '../model/service-provider';
 import { ServiceProviderService } from '../service/service-provider.service';
-import { Vendor } from '../vendor';
-import { VendorService } from '../vendor.service';
-import { Repair } from '../repair';
-import { RepairService } from '../repair.service';
+import { Vendor } from '../model/vendor';
+import { VendorService } from '../service/vendor.service';
+import { Repair } from '../model/repair';
+import { RepairService } from '../service/repair.service';
 
 @Component({
   selector: 'app-form-add-invoice',
