@@ -8,7 +8,7 @@ import { Invoice } from '../model/invoice';
 })
 export class InvoiceService {
 
-  private invoiceUrl: string = "//localhost:8080/invoices"
+  private invoiceUrl: string = "//localhost:8080/invoice"
   private searchUrl: string = "//localhost:8080/search"
 
   constructor(private http: HttpClient) { }

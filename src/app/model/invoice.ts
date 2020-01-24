@@ -1,10 +1,13 @@
-import { ServiceProvider } from './service-provider';
+import { Vendor } from '../vendor';
+import { Repair } from '../repair';
 
 export class Invoice {
     id: number;
     date: string;
     mileage: number;
-    serviceProvider: ServiceProvider;
-    servicePerformed: string;
+    vendorId: number;
+    vendor: Vendor;
+    repairId: number;
+    repair: Repair;
     filePath: string;
 }
