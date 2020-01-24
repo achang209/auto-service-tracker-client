@@ -21,20 +21,20 @@ export class InvoiceService {
     return this.http.post<FormData>(this.invoiceUrl, formdata);
   }
 
-  searchByProvider(term: string): Observable<Invoice[]> {
+  searchByVendor(term: string): Observable<Invoice[]> {
     if (!term.trim()) {
       // if not search term, return empty invoice array.
       return of([]);
     }
-    return this.http.get<Invoice[]>(`${this.searchUrl}/provider/?name=${term}`);
+    return this.http.get<Invoice[]>(`${this.searchUrl}/vendor/?name=${term}`);
   }
 
-  searchByService(term: string): Observable<Invoice[]> {
+  searchByRepair(term: string): Observable<Invoice[]> {
     if (!term.trim()) {
       // if not search term, return empty invoice array.
       return of([]);
     }
-    return this.http.get<Invoice[]>(`${this.searchUrl}/service/?name=${term}`);
+    return this.http.get<Invoice[]>(`${this.searchUrl}/repair/?name=${term}`);
   }
 
 }

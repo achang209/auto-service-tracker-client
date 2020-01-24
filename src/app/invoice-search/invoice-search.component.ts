@@ -16,13 +16,13 @@ export class InvoiceSearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  searchByProvider(name: string): void {
-    this.invoiceService.searchByProvider(name)
+  searchByVendor(name: string): void {
+    this.invoiceService.searchByVendor(name)
     .subscribe(invoices => this.invoices = invoices);
   }
 
-  searchByService(name: string): void {
-    this.invoiceService.searchByService(name)
+  searchByRepair(name: string): void {
+    this.invoiceService.searchByRepair(name)
     .subscribe(invoices => this.invoices = invoices);
   }
 
