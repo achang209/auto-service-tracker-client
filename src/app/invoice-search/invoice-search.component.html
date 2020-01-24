@@ -2,18 +2,18 @@
     <div class="card-body">
 
         <label>
-            Search by service provider:
-            <input #serviceProvider type="text">
+            Search by Vendor:
+            <input #vendor type="text">
         </label>
 
-        <button (click)="searchByProvider(serviceProvider.value)">search</button>
+        <button (click)="searchByVendor(vendor.value)">search</button>
 
         <label>
-            Search by service performed:
-            <input #servicePerformed type="text">
+            Search by Repair:
+            <input #repair type="text">
         </label>
 
-        <button (click)="searchByService(servicePerformed.value)">search</button>
+        <button (click)="searchByRepair(repair.value)">search</button>
         
         <div *ngIf="invoices.length > 0; else elseBlock">
             <table class="table table-bordered table-striped">
@@ -21,8 +21,8 @@
                     <tr>
                         <th scope="col">Date</th>
                         <th scope="col">Mileage</th>
-                        <th scope="col">Service Provider</th>
-                        <th scope="col">Service Performed</th>
+                        <th scope="col">Vendor</th>
+                        <th scope="col">Repair</th>
                         <th scope="col">Actions</th>
     
                     </tr>
@@ -31,8 +31,8 @@
                     <tr *ngFor="let invoice of invoices">
                         <td>{{invoice.date}}</td>
                         <td>{{invoice.mileage}}</td>
-                        <td>{{invoice.serviceProvider}}</td>
-                        <td>{{invoice.servicePerformed}}</td>
+                        <td>{{invoice.vendor.name}}</td>
+                        <td>{{invoice.repair.name}}</td>
                         <td><a href="{{invoice.filePath}}" class="btn btn-info">Details</a></td>
                     </tr>
                 </tbody>
@@ -41,7 +41,7 @@
 
         <ng-template #elseBlock>
             <div>
-                No invoices to be found with search term = {{serviceProvider.value}}
+                No invoices to be found with search term.
             </div>
         </ng-template>
 
