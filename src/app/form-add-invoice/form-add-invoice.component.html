@@ -18,10 +18,10 @@
 
             <div class="form-group">
             <label>
-                ServiceProvider:
-                <select class="form-control" formControlName="serviceProviderId">
-                    <option *ngFor="let provider of serviceProviders" [value]="provider.id">
-                        {{provider.name}}
+                Vendor:
+                <select class="form-control" formControlName="vendorId">
+                    <option *ngFor="let vendor of vendors" [value]="vendor.id">
+                        {{vendor.name}}
                     </option>
                 </select>
             </label>
@@ -29,8 +29,12 @@
 
             <div class="form-group">
             <label>
-                ServicePerformed:
-                <input class="form-control" type="text" formControlName="servicePerformed">
+                Repair:
+                <select class="form-control" formControlName="repairId">
+                    <option *ngFor="let repair of repairs" [value]="repair.id">
+                        {{repair.name}}
+                    </option>
+                </select>
             </label>
             </div>
 

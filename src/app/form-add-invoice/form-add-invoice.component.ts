@@ -4,6 +4,10 @@ import { InvoiceService } from '../service/invoice.service';
 import { Invoice } from '../model/invoice';
 import { ServiceProvider } from '../model/service-provider';
 import { ServiceProviderService } from '../service/service-provider.service';
+import { Vendor } from '../vendor';
+import { VendorService } from '../vendor.service';
+import { Repair } from '../repair';
+import { RepairService } from '../repair.service';
 
 @Component({
   selector: 'app-form-add-invoice',
@@ -13,24 +17,32 @@ import { ServiceProviderService } from '../service/service-provider.service';
 export class FormAddInvoiceComponent implements OnInit {
 
   userFile: File;
-  serviceProviders: ServiceProvider[];
+  vendors: Vendor[];
+  repairs: Repair[];
   addInvoiceForm = new FormGroup({
     date: new FormControl(''),
     mileage: new FormControl(''),
-    serviceProviderId: new FormControl(''),
-    servicePerformed: new FormControl('')
+    vendorId: new FormControl(''),
+    repairId: new FormControl('')
   });
 
   constructor(private invoiceService: InvoiceService, 
-    private serviceProviderService: ServiceProviderService) { }
+    private vendorService: VendorService, 
+    private repairService: RepairService) { }
 
   ngOnInit() {
-    this.getServiceProviders();
+    this.getVendors();
+    this.getRepairs();
   }
 
-  getServiceProviders(): void {
-    this.serviceProviderService.getServiceProviders()
-      .subscribe(serviceProviders => this.serviceProviders = serviceProviders);
+  getVendors(): void {
+    this.vendorService.getVendors()
+      .subscribe(vendors => this.vendors = vendors);
+  }
+
+  getRepairs(): void {
+    this.repairService.getRepairs()
+      .subscribe(repairs => this.repairs = repairs);
   }
 
   onSelectFile(event) {
@@ -41,10 +53,10 @@ export class FormAddInvoiceComponent implements OnInit {
   onSubmit(): void {
     let date = this.addInvoiceForm.value.date.trim();
     let mileage = this.addInvoiceForm.value.mileage.trim();
-    let serviceProviderId = this.addInvoiceForm.value.serviceProviderId.trim();
-    let servicePerformed = this.addInvoiceForm.value.servicePerformed.trim();
+    let vendorId = this.addInvoiceForm.value.vendorId.trim();
+    let repairId = this.addInvoiceForm.value.repairId.trim();
 
-    if (!date || !mileage || !serviceProviderId || !servicePerformed) { return; }
+    if (!date || !mileage || !vendorId || !repairId) { return; }
 
     let invoice = this.addInvoiceForm.value;
     const formData: FormData = new FormData();
