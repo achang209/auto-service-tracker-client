@@ -8,7 +8,7 @@ import { Invoice } from '../model/invoice';
 })
 export class InvoiceService {
 
-  private invoiceUrl: string = "//localhost:8080/invoices"
+  private invoiceUrl: string = "//localhost:8080/invoice"
   private searchUrl: string = "//localhost:8080/search"
 
   constructor(private http: HttpClient) { }
@@ -26,7 +26,7 @@ export class InvoiceService {
       // if not search term, return empty invoice array.
       return of([]);
     }
-    return this.http.get<Invoice[]>(`${this.searchUrl}/provider/?provider=${term}`);
+    return this.http.get<Invoice[]>(`${this.searchUrl}/provider/?name=${term}`);
   }
 
   searchByService(term: string): Observable<Invoice[]> {
@@ -34,7 +34,7 @@ export class InvoiceService {
       // if not search term, return empty invoice array.
       return of([]);
     }
-    return this.http.get<Invoice[]>(`${this.searchUrl}/service/?service=${term}`);
+    return this.http.get<Invoice[]>(`${this.searchUrl}/service/?name=${term}`);
   }
 
 }
